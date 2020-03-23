@@ -133,6 +133,6 @@ public class MealController {
         Long menuId=Long.parseLong(req.getParameter("id"));
         int i=mealServices.deleteThis(menuId);
         log.info("{}:i=",i);
-        return "forward:/testsysmenu";
+        return "forward:/mealmanage";
     }
 }

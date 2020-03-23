@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @Transactional
@@ -19,7 +20,7 @@ public class MealServices {
 
     public void findAll(HttpServletRequest req){
 
-        Iterable<MealItem> mealItems =mealItemDao.findAll();
+        List<MealItem> mealItems =mealItemDao.findAll();
 
         req.setAttribute("MealItems", mealItems);
 

@@ -13,7 +13,7 @@
             <#list MealItems as one>
                 <tr style="background:rgba(255, 235, 59, 0.19);">
                     <td>${(one.mealName)!''}</td>
-                    <td><span class="glyphicon ${(one.mealImage)!''}"></span></td>
+                    <td><img src="${(one.mealImage)!''}"></img></td>
                     <td><span>${(one.mealDesc)!''}</span></td>
                     <td><span>${(one.mealPrice)!''}</span></td>
                     <td><span>${(one.sortId)!''}</span></td>

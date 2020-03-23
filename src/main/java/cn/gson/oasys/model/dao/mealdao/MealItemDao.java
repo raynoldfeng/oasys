@@ -14,7 +14,7 @@ public interface MealItemDao extends JpaRepository<MealItem, Long> {
 
     MealItem findByMealName(String name);
 
-    @Query("update MealItem meal set meal.delete=1 where meal.mealId= :mealId")
+    @Query("delete from MealItem meal where meal.mealId= :mealId")
     @Modifying
     int deleteThis(@Param("mealId") Long mealId);
 

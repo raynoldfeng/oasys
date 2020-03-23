@@ -31,17 +31,6 @@ public class MealItem {
     @Column(name = "is_show")
     private Boolean show=false; // 菜单是否显示
 
-    @Column(name = "is_delete")
-    private Boolean delete=false;
-
-    public Boolean getDelete() {
-        return delete;
-    }
-
-    public void setDelete(Boolean delete) {
-        this.delete = delete;
-    }
-
     public Boolean getShow() {
         return show;
     }
