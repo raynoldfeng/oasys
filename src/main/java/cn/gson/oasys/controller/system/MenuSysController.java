@@ -151,7 +151,7 @@ public class MenuSysController {
 	 * 后台校验表单数据，不通过则回填数据，显示错误信息；通过则直接执行业务，例如新增、编辑等；
 	 * @return
 	 */
-	@RequestMapping("test111")
+	@RequestMapping("updateMenuItem")
 	public String testMess(HttpServletRequest req, @Valid SystemMenu menu, BindingResult br) {
 		HttpSession session = req.getSession();
 		Long menuId = null;

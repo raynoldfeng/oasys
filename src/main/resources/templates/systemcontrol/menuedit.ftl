@@ -37,7 +37,7 @@ a:hover {
 					</a>
 				</h3>
 			</div>
-			<form action="test111" method="post" id="thisForm" onsubmit="return check();">
+			<form action="updateMenuItem" method="post" id="thisForm" onsubmit="return check();">
 				<!--盒子身体-->
 				<div class="box-body no-padding">
 					<div class="box-body">
@@ -66,11 +66,16 @@ a:hover {
 							<div class="col-md-6 form-group">
 								<label class="control-label"><span>父级</span></label> 
 								 <select class="form-control" name="parentId">
-								 <#if menuObj??>
-								 	<option value="${menuObj.menuId}" selected="selected">${menuObj.menuName}</option>
-								 </#if>
 								 <#list parentList as list>
-								 	<option value="${list.menuId}">${list.menuName}</option>
+								    <#if menuObj??>
+								        <#if list.menuId==menuObj.parentId>
+								 	        <option value="${list.menuId}" selected="selected">${list.menuName}</option>
+								 	    <#else>
+								 	         <option value="${list.menuId}">${list.menuName}</option>
+								 	    </#if>
+								 	<#else>
+								 	    <option value="${list.menuId}">${list.menuName}</option>
+								 	</#if>
 								 </#list>
 								 </select>
 								<!-- <#if getAdd??>
