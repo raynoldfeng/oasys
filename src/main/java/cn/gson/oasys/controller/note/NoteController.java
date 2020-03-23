@@ -146,8 +146,6 @@ public class NoteController {
 		return "note/notewrite";
 	}
 
-	
-
 	// 收藏
 	@RequestMapping("collect")
 	public String dsaf(Model model,HttpServletRequest request,

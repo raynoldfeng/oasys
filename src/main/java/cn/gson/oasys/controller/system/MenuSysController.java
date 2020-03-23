@@ -208,7 +208,7 @@ public class MenuSysController {
 	 * 菜单管理的删除
 	 * @return
 	 */
-	@RequestMapping("deletethis")
+	@RequestMapping("deletemenu")
 	public String delete(HttpServletRequest req){
 		Long menuId=Long.parseLong(req.getParameter("id"));
 		int i=menuService.deleteThis(menuId);
