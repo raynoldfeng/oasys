@@ -24,11 +24,7 @@ import java.util.List;
 @Component
 public class recordInterceptor extends HandlerInterceptorAdapter{
 
-	
 	Tool tool;
-	
-
-
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
@@ -91,17 +87,16 @@ public class recordInterceptor extends HandlerInterceptorAdapter{
 		//System.out.println(request.getRequestedSessionId());
 		uLog.setUrl(request.getServletPath());
 		uLog.setLogTime(new Date());
-	
-		//还没有登陆不能获取session
-		
-		uLog.setUser(new User());
-//		uLog.setUser(userDao.findOne(1l));
+
+		//从session内获得userId,可能存在还未登录的情况
+		Long uid=Long.parseLong(session.getAttribute("userId")+"");
+		uLog.setUser(userDao.findOne(uid));
 		//从菜单表里面匹配
 		List<SystemMenu> sMenus=(List<SystemMenu>) systemMenuDao.findAll();
 		for (SystemMenu systemMenu : sMenus) {
 			if(systemMenu.getMenuUrl().equals(request.getServletPath())){
 				//只有当该记录的路径不等于第一条的时候
-				if(!userLogDao.findByUserlaset(1l).getUrl().equals(systemMenu.getMenuUrl())){
+				if(!userLogDao.findByUserlaset(uid).getUrl().equals(systemMenu.getMenuUrl())){
 				uLog.setTitle(systemMenu.getMenuName());
 				//只要匹配到一个保存咯
 				userLogDao.save(uLog);
