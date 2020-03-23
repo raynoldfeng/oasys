@@ -26,7 +26,7 @@ public class ProcessList{
 	private Long processId;
 	
 	@Column(name="type_name")
-	private String typeNmae;			//流程申请类型 
+	private String typeName;			//流程申请类型 
 	
 	@Column(name="status_id")
 	private Long statusId;			//流程审核状态 id
@@ -83,12 +83,12 @@ public class ProcessList{
 		this.processId = processId;
 	}
 
-	public String getTypeNmae() {
-		return typeNmae;
+	public String getTypeName() {
+		return typeName;
 	}
 
-	public void setTypeNmae(String typeNmae) {
-		this.typeNmae = typeNmae;
+	public void setTypeName(String typeName) {
+		this.typeName = typeName;
 	}
 
 	public Long getStatusId() {
@@ -181,7 +181,7 @@ public class ProcessList{
 
 	@Override
 	public String toString() {
-		return "ProcessList [processId=" + processId + ", typeNmae=" + typeNmae + ", statusId=" + statusId + ", deeply="
+		return "ProcessList [processId=" + processId + ", typeName=" + typeName + ", statusId=" + statusId + ", deeply="
 				+ deeply + ", processName=" + processName + ", processDescribe=" + processDescribe + ", applyTime="
 				+ applyTime + ", rejected=" + rejected + ", startTime=" + startTime + ", endTime=" + endTime
 				+ ", procseeDays=" + procseeDays + ", shenuser=" + shenuser + "]";

@@ -249,7 +249,7 @@
 						
 							<#list processlist as pro>
 							<tr>
-								<td>${(pro.typeNmae)!''}
+								<td>${(pro.typeName)!''}
 								</td>
 								<td>${(pro.applyTime)!''}</td>
 								<td><#list prostatuslist as pros>
@@ -259,7 +259,7 @@
 								</#list>
 								</td>
 								<td><span>${(pro.processName)!''}</span></td>
-								<td><a  class="look-xiangxi"><span
+								<td><a  href="particular?id=${pro.processId}&typename=${pro.typeName}" class="look-xiangxi"><span
 										class="glyphicon glyphicon-search"> </span> 查看 </a></td>
 							</tr>
 						</#list>

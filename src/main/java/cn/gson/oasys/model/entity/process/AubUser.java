@@ -8,7 +8,7 @@ public class AubUser {
 
 	private Long processId;
 	
-	private String typeNmae;	
+	private String typeName;	
 	
 	private Long deeply;    //紧急程度
 	
@@ -28,12 +28,12 @@ public class AubUser {
 		this.processId = processId;
 	}
 
-	public String getTypeNmae() {
-		return typeNmae;
+	public String getTypeName() {
+		return typeName;
 	}
 
-	public void setTypeNmae(String typeNmae) {
-		this.typeNmae = typeNmae;
+	public void setTypeName(String typeName) {
+		this.typeName = typeName;
 	}
 
 	public Long getDeeply() {
@@ -78,15 +78,15 @@ public class AubUser {
 
 	@Override
 	public String toString() {
-		return "AubUser [processId=" + processId + ", typeNmae=" + typeNmae + ", deeply=" + deeply + ", processName="
+		return "AubUser [processId=" + processId + ", typeName=" + typeName + ", deeply=" + deeply + ", processName="
 				+ processName + ", userName=" + userName + ", applyTime=" + applyTime + ", statusId=" + statusId + "]";
 	}
 
-	public AubUser(Long processId, String typeNmae, Long deeply, String processName, String userName, Date applyTime,
+	public AubUser(Long processId, String typeName, Long deeply, String processName, String userName, Date applyTime,
 			Long statusId) {
 		super();
 		this.processId = processId;
-		this.typeNmae = typeNmae;
+		this.typeName = typeName;
 		this.deeply = deeply;
 		this.processName = processName;
 		this.userName = userName;

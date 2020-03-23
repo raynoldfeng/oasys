@@ -412,7 +412,7 @@ public class ProcedureController {
 		
 		Reviewed re=redao.findByProIdAndUserId(process.getProcessId(), u);//查找审核表
 		
-		String typename=process.getTypeNmae().trim();
+		String typename=process.getTypeName().trim();
 		if(("费用报销").equals(typename)){
 			Bursement bu=budao.findByProId(process);
 			model.addAttribute("bu", bu);
@@ -617,10 +617,11 @@ public class ProcedureController {
 	/**
 	 * 出差费用表单接收
 	 * @param model
-	 * @param session
-	 * @param request
-	 * @param page
-	 * @param size
+	 * @param req
+	 * @param eve
+	 * @param br
+	 * @param userId
+	 * @param filePath
 	 * @return
 	 */
 	@RequestMapping("moneyeve")
@@ -678,11 +679,6 @@ public class ProcedureController {
 	}
 	/**
 	 * 出差申请表单接收
-	 * @param model
-	 * @param session
-	 * @param request
-	 * @param page
-	 * @param size
 	 * @return
 	 * @throws IOException 
 	 * @throws IllegalStateException 

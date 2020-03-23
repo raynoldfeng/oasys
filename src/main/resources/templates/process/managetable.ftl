@@ -32,7 +32,7 @@
 						</tr>
 						<#list prolist as pro>
 						<tr>
-							<td>${(pro.typeNmae)!''}</td>
+							<td>${(pro.typeName)!''}</td>
 							<td><span>${(pro.processName)!''}</span></td>
 							<td><span>${(pro.applyTime)!''}</span></td>
 							<td><span>${(pro.shenuser)!''}</span></td>
@@ -47,7 +47,7 @@
 								</#if>
 							</#list>
 							
-							<td> <a href="particular?id=${pro.processId}&typename=${(pro.typeNmae)!''}" class="label xiugai"><span
+							<td> <a href="particular?id=${pro.processId}&typename=${(pro.typeName)!''}" class="label xiugai"><span
 									class="glyphicon glyphicon-search"></span> 查看</a> 
 							</td>
 						</tr>

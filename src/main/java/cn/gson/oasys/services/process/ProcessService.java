@@ -144,10 +144,9 @@ public class ProcessService {
 	}
   /**
    * 用户封装
-   * @param user
    * @param page
    * @param size
-   * @param val
+   * @Model model
    * @return
    */
 	public void user(int page,int size,Model model){
@@ -203,7 +202,7 @@ public class ProcessService {
 			String harryname=tydao.findname(prolist.get(i).getDeeply());
 			SystemStatusList status=sdao.findOne(prolist.get(i).getStatusId());
 			Map<String, Object> result=new HashMap<>();
-			result.put("typename", prolist.get(i).getTypeNmae());
+			result.put("typename", prolist.get(i).getTypeName());
 			result.put("title", prolist.get(i).getProcessName());
 			result.put("pushuser", prolist.get(i).getUserName());
 			result.put("applytime",  prolist.get(i).getApplyTime());
@@ -265,7 +264,7 @@ public class ProcessService {
 			result.put("file", "file");
 		}
 		result.put("name", name);
-		result.put("typename", process.getTypeNmae());
+		result.put("typename", process.getTypeName());
 		result.put("startime", process.getStartTime());
 		result.put("endtime", process.getEndTime());
 		result.put("tianshu", process.getProcseeDays());
@@ -309,7 +308,7 @@ public class ProcessService {
 	 */
 	public void index5(ProcessList pro,String val,User lu,MultipartFile filePath,String name) throws IllegalStateException, IOException{
 		
-		pro.setTypeNmae(val);
+		pro.setTypeName(val);
 		pro.setApplyTime(new Date());
 		pro.setUserId(lu);
 		pro.setStatusId(23L);
@@ -323,7 +322,7 @@ public class ProcessService {
 		}
 	}
 	public void index8(ProcessList pro,String val,User lu,String name) {
-		pro.setTypeNmae(val);
+		pro.setTypeName(val);
 		pro.setApplyTime(new Date());
 		pro.setUserId(lu);
 		pro.setStatusId(23L);
