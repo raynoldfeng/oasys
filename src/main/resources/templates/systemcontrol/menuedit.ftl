@@ -1,5 +1,8 @@
 <#include "/common/commoncss.ftl">
 <style type="text/css">
+.v-middle {
+	vertical-align: middle;
+}
 
 a:hover {
 	text-decoration: none;

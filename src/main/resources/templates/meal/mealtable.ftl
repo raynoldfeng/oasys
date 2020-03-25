@@ -1,3 +1,8 @@
+<style type="text/css">
+.v-middle {
+    display:table-cell; vertical-align:middle !important
+}
+</style>
 <div class="table-responsive">
 	<table class="table table-hover">
 		<tr>
@@ -12,17 +17,17 @@
 		<#if MealItems??>
             <#list MealItems as one>
                 <tr style="background:rgba(255, 235, 59, 0.19);">
-                    <td>${(one.mealName)!''}</td>
-                    <td><img src="${(one.mealImage)!''}"></img></td>
-                    <td><span>${(one.mealDesc)!''}</span></td>
-                    <td><span>${(one.mealPrice)!''}</span></td>
-                    <td><span>${(one.sortId)!''}</span></td>
+                    <td class="v-middle">${(one.mealName)!''}</td>
+                    <td class="v-middle"><img height="64" width="64" src="${(one.mealImage)!''}"></img></div></td>
+                    <td class="v-middle"><span>${(one.mealDesc)!''}</span></td>
+                    <td class="v-middle"><span>${(one.mealPrice/100)!''}</span></td>
+                    <td class="v-middle"><span>${(one.sortId)!''}</span></td>
                     <#if one.show==true>
-                        <td><span class="labels"><label><input type="checkbox" checked disabled><i>✓</i></label></span></td>
+                        <td class="v-middle"><span class="labels"><label><input type="checkbox" checked disabled><i>✓</i></label></span></td>
                     <#else>
-                        <td><span class="labels"><label><input type="checkbox" disabled><i>✓</i></label></span></td>
+                        <td class="v-middle"><span class="labels"><label><input type="checkbox" disabled><i>✓</i></label></span></td>
                     </#if>
-                    <td>
+                    <td class="v-middle">
                         <a href="changeSortId?sortid=${one.sortId}&mealid=${one.mealId}&num=1" class="label sheding"><span class="glyphicon glyphicon-arrow-up"></span> 上移</a>
                         <a href="changeSortId?sortid=${one.sortId}&mealid=${one.mealId}&num=-1" class="label sheding"><span class="glyphicon glyphicon-arrow-down"></span> 下移</a>
                         <a href="mealedit?id=${one.mealId}" class="label xiugai"><span class="glyphicon glyphicon-edit"></span> 修改</a>

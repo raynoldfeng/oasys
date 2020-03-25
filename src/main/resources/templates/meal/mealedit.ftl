@@ -48,6 +48,7 @@ a:hover {
 
 						<div class="row">
 							<div class="col-md-6 form-group">
+							    <input class="form-control" value="${(mealObject.mealId)!''}" name="mealId"/>
 							    <div class="row">
 								    <label class="control-label"><span>名称</span></label>
 								    <input class="form-control" value="${(mealObject.mealName)!''}" name="mealName"/>
@@ -78,7 +79,7 @@ a:hover {
                         <div class="row">
                             <div class="col-md-6 form-group">
                                 <label class="control-label"><span>价格</span></label>
-                                <input type="text" onkeyup="clearNoNum(this)" class="num form-control" value="${(mealObject.mealPrice)!''}">
+                                <input type="text" onkeyup="clearNoNum(this)" class="num form-control" value="${(mealObject.mealPrice/100)!''}">
                                 <input type="hidden" id="hidden-price" class="form-control" name="mealPrice" value=0>
                             </div>
 
