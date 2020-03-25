@@ -6,22 +6,29 @@ import cn.gson.oasys.common.formValid.ResultEnum;
 import cn.gson.oasys.common.formValid.ResultVO;
 import cn.gson.oasys.model.dao.mealdao.MealItemDao;
 import cn.gson.oasys.model.entity.meal.MealItem;
-import cn.gson.oasys.model.entity.role.Role;
-import cn.gson.oasys.model.entity.role.Rolepowerlist;
-import cn.gson.oasys.model.entity.system.SystemMenu;
 import cn.gson.oasys.services.meal.MealServices;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+
 
 @Controller
 @RequestMapping("/")
@@ -34,6 +41,7 @@ public class MealController {
 
     @Autowired
     private MealServices mealServices;
+
     /**
      * 进入菜品管理表格界面
      *
@@ -48,6 +56,18 @@ public class MealController {
             mealServices.findAll(req);
         }
         return "meal/mealmanage";
+    }
+
+    /**
+     * 进入菜品管理表格界面
+     *
+     * @param req
+     * @return
+     */
+    @RequestMapping("mealorder")
+    public String mealOrder(HttpServletRequest req) {
+        mealServices.findAll(req);
+        return "meal/mealorder";
     }
 
     /**
@@ -134,5 +154,26 @@ public class MealController {
         int i=mealServices.deleteThis(menuId);
         log.info("{}:i=",i);
         return "forward:/mealmanage";
+    }
+
+    /**
+     * 菜单管理的删除
+     * @return
+     */
+    @RequestMapping(value="/makeorder", method = RequestMethod.POST)
+    @ResponseBody
+    public String order(HttpServletRequest req,@RequestBody JSONObject objects){
+        HttpSession session = req.getSession();
+        JSONArray array = objects.getJSONArray("items");
+        long mealId = 0;
+        int mealCount = 0;
+        for(int i=0;i<array.size();i++) {
+            mealId = Long.parseLong(array.getJSONObject(i).get("mealId").toString());
+            mealCount = Integer.parseInt(array.getJSONObject(i).get("mealCount").toString());
+        }
+        System.out.println("此操作是正确的");
+        req.setAttribute("success", "后台验证成功");
+
+        return "forward:/makeorder";
     }
 }
